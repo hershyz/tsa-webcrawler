@@ -1,6 +1,6 @@
 import requests
 import re
-urls = ['https://www.coolmathgames.com']
+urls = ['https://www.youtube.com']
 
 def extract(res):
     regex = re.compile('((https?):((//)|(\\\\))+([\w\d:#@%/;$()~_?\+-=\\\.&](#!)?)*)', re.DOTALL)
@@ -18,7 +18,10 @@ def update_urls(n): # n = number of urls to add
 
         curr = urls[index]
         index += 1
-        res = requests.get(curr).text
+        try:
+            res = requests.get(curr).text
+        except:
+            continue
         found = extract(res)
         for url in found:
             urls.append(url)

@@ -2,7 +2,8 @@
 
 import url_fetcher
 
-url_fetcher.update_urls(100)
+# test
+url_fetcher.update_urls(200)
 urls = url_fetcher.urls
 
 for url in urls:
