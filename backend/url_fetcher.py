@@ -1,6 +1,7 @@
 import requests
 import re
-urls = ['https://www.youtube.com']
+
+urls = ['https://www.theverge.com']
 
 def extract(res):
     regex = re.compile('((https?):((//)|(\\\\))+([\w\d:#@%/;$()~_?\+-=\\\.&](#!)?)*)', re.DOTALL)
@@ -8,11 +9,10 @@ def extract(res):
     return [x[0] for x in url]
 
 def update_urls(n): # n = number of urls to add
-    
-    # TODO: make urls array populate from a database
 
-    desired_length = len(urls) + n
+    desired_length = len(urls) - 1
 
+    # update
     index = len(urls) - 1
     while True:
 
@@ -24,7 +24,8 @@ def update_urls(n): # n = number of urls to add
             continue
         found = extract(res)
         for url in found:
-            urls.append(url)
+            if '.jpeg' not in url and '.jpg' not in url and '.svg' not in url and '.png' not in url: # don't crawl image files
+                urls.append(url)
 
         if index == len(urls) or len(urls) >= desired_length:
             break

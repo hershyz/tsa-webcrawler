@@ -4,9 +4,6 @@ import url_fetcher
 
 # test
 url_fetcher.update_urls(1000)
-urls = url_fetcher.urls
-
-for url in urls:
+for url in url_fetcher.urls:
     print(url)
-
-print('current length: ' + str(len(urls)))
+print('current length: ' + str(len(url_fetcher.urls)))
