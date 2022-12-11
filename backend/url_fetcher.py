@@ -4,7 +4,7 @@ urls = ['https://www.youtube.com']
 
 def extract(res):
     regex = re.compile('((https?):((//)|(\\\\))+([\w\d:#@%/;$()~_?\+-=\\\.&](#!)?)*)', re.DOTALL)
-    url = re.findall(regex,res)      
+    url = re.findall(regex,res)
     return [x[0] for x in url]
 
 def update_urls(n): # n = number of urls to add
@@ -13,7 +13,7 @@ def update_urls(n): # n = number of urls to add
 
     desired_length = len(urls) + n
 
-    index = 0
+    index = len(urls) - 1
     while True:
 
         curr = urls[index]
