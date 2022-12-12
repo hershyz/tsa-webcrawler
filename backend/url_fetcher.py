@@ -2,6 +2,7 @@ import requests
 import re
 
 urls = ['https://www.theverge.com']
+last_index = [-1]
 
 def extract(res):
     regex = re.compile('((https?):((//)|(\\\\))+([\w\d:#@%/;$()~_?\+-=\\\.&](#!)?)*)', re.DOTALL)
@@ -10,10 +11,10 @@ def extract(res):
 
 def update_urls(n): # n = number of urls to add
 
-    desired_length = len(urls) - 1
+    desired_length = len(urls) + n
 
     # update
-    index = len(urls) - 1
+    index = last_index[0] + 1
     while True:
 
         curr = urls[index]
@@ -28,4 +29,5 @@ def update_urls(n): # n = number of urls to add
                 urls.append(url)
 
         if index == len(urls) or len(urls) >= desired_length:
+            last_index[0] = index
             break
