@@ -6,4 +6,5 @@
     Requirements (pip):
     requests
     flask
+    html2text
 </pre>
