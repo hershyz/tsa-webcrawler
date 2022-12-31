@@ -3,7 +3,7 @@ import re
 
 urls = []
 urls_set = set()
-forbidden = ['.jpeg', '.jpg', '.svg', '.png', '.gif', '.css', '.js', '.mp4', '.mp3', '.wav', '.mov', '.woff'] # don't crawl image, movies, audio, font, javascript, or css files
+forbidden = ['.jpeg', '.jpg', '.svg', '.png', '.gif', '.css', '.js', '.php', '.mp4', '.mp3', '.wav', '.mov', '.woff'] # don't crawl image, movies, audio, font, or code files
 
 def extract(res):
     regex = re.compile('((https?):((//)|(\\\\))+([\w\d:#@%/;$()~_?\+-=\\\.&](#!)?)*)', re.DOTALL)
