@@ -14,5 +14,3 @@ def parse(url):
         arr[i] = arr[i].lower()
     
     return arr
-
-print(parse('https://www.pornhub.com'))
