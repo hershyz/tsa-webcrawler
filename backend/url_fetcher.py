@@ -3,7 +3,7 @@ import re
 
 urls = []
 urls_set = set()
-forbidden = ['.jpeg', '.jpg', '.svg', '.png', '.gif', '.css', '.js', '.php', '.mp4', '.mp3', '.wav', '.mov', '.woff'] # don't crawl image, movies, audio, font, or code files
+forbidden = ['.jpeg', '.jpg', '.svg', '.png', '.gif', '.css', '.js', '.php', '.mp4', '.mp3', '.wav', '.mov', '.woff', '.webp'] # don't crawl image, movies, audio, font, or code files
 
 def extract(res):
     regex = re.compile('((https?):((//)|(\\\\))+([\w\d:#@%/;$()~_?\+-=\\\.&](#!)?)*)', re.DOTALL)
@@ -34,6 +34,7 @@ def update_urls(index): # n = number of urls to add
         res = requests.get(curr).text
         found = extract(res)
         for url in found:
+            url = url.lower()
             if verify(url):
                 urls.append(url)
                 urls_set.add(url)
