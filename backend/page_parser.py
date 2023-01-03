@@ -3,14 +3,18 @@ import html2text
 
 def parse(url):
     
-    # parse into a single string
-    raw = requests.get(url).text
-    h = html2text.HTML2Text()
-    h.ignore_links = False
+    try:
+        # parse into a single string
+        raw = requests.get(url).text
+        h = html2text.HTML2Text()
+        h.ignore_links = False
 
-    # convert to lowercase
-    arr = h.handle(raw).split(' ')
-    for i in range(len(arr)):
-        arr[i] = arr[i].lower()
+        # convert to lowercase
+        arr = h.handle(raw).split(' ')
+        for i in range(len(arr)):
+            arr[i] = arr[i].lower()
+        
+        return arr
     
-    return arr
+    except:
+        return []

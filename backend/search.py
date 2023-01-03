@@ -25,7 +25,8 @@ def search(text):
                     res[url] = res[url] + 1
                 if url not in res:
                     res[url] = 1
-    
+
+    res = sorted(res.items(), key=lambda x:x[1], reverse=True) # turns the dict into an array of tuples
     return res
 
 
@@ -33,5 +34,7 @@ def search(text):
 # temporary input field for testing
 query = input('search: ')
 res = search(query)
-for url in res:
-    print(str(url) + ', ' + str(res[url]))
+if len(res) == 0:
+    print('[no results]')
+for element in res:
+    print(element)
