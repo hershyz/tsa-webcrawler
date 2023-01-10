@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 
 class searchField extends Component {
 
-    function 
-
     render() {
         return (
             <div style={{
