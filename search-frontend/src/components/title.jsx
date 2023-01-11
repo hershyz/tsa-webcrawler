@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 
-class headingText extends Component {
+class results extends Component {
+
     render() {
         return (
             <div style={{
                 display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
+                justifyContent:'center',
+                alignItems:'center',
             }}>
                 <h1>TSA WebCrawler Search Engine</h1>
             </div>
@@ -14,4 +15,4 @@ class headingText extends Component {
     }
 }
 
-export default headingText;
+export default results;

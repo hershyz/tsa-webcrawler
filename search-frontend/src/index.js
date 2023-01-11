@@ -3,14 +3,16 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css'
 import SearchField from './components/searchField';
-import HeadingText from './components/headingText';
-import Results from './components/results'
+import Title from './components/title'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-  <HeadingText/>
-  <SearchField/>
-  <Results/>
+    <br />
+    <br />
+    <br />
+    <Title/>
+    <br />
+    <SearchField/>
   </React.StrictMode>
 );
