@@ -33,7 +33,7 @@ class searchField extends Component {
                     justifyContent:'center',
                     alignItems:'center',
                 }}>
-                    <input id="searchBox" placeholder="Query..." className="form-control" style={{width: "600px"}}/>
+                    <input id="searchBox" placeholder="Query..." className="form-control" style={{width: "600px"}} onChange={ this.search }/>
                     <button type="button" className="btn btn-dark m-2" onClick={ this.search }>Search</button>
                 </div>
                 <br />
