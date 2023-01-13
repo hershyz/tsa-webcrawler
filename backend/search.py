@@ -27,14 +27,7 @@ def search(text):
                     res[url] = 1
 
     res = sorted(res.items(), key=lambda x:x[1], reverse=True) # turns the dict into an array of tuples
-    return res
-
-
-
-# temporary input field for testing
-query = input('search: ')
-res = search(query)
-if len(res) == 0:
-    print('[no results]')
-for element in res:
-    print(element)
+    urls = []
+    for element in res:
+        urls.append(element[0])
+    return urls

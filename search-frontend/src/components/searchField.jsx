@@ -3,17 +3,30 @@ import React, { Component } from 'react';
 class searchField extends Component {
 
     state = {
-        searchResults: ['[placeholder]']
+        searchResults: []
     }
 
-    search = () => {
+    search = async () => {
         
+        await new Promise(r => setTimeout(r, 1000)); // don't overload the backend
         var query = document.getElementById('searchBox').value;
 
-        // call api here:
+        // call api
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "http://127.0.0.1:5000/search", false);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            'query': query
+        }));
+
+        // format response
+        var rawResponse = xhr.responseText;
+        rawResponse = rawResponse.replace(/["']/g, "");
+        rawResponse = rawResponse.replace('[', '');
+        rawResponse = rawResponse.replace(']', '');
 
         this.setState({
-            searchResults: query.split(' ') // placeholder demo code
+            searchResults: rawResponse.split(', ')
         })
     }
 
